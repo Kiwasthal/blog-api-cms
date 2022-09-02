@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import useInput from '../hooks/useInput';
 
-let LoginPage = () => {
+let LoginPage = ({ setUserAuth }) => {
   const username = useInput('');
   const password = useInput('');
+  let [errTxt, setErrTxt] = useState('');
 
   let saveTokenData = data => {
     localStorage.setItem('token', data.token);
@@ -26,9 +28,9 @@ let LoginPage = () => {
 
     if (response.status === 200) {
       saveTokenData(data);
-      console.log('Logged');
+      setUserAuth(true);
     } else {
-      //SetError.textContent = data.info.message;
+      setErrTxt(data.info.message);
     }
   };
 
@@ -68,6 +70,9 @@ let LoginPage = () => {
                 >
                   login
                 </button>
+              </div>
+              <div className="mt-2">
+                <span className="text-sm text-red-500">{errTxt}</span>
               </div>
             </form>
           </div>
