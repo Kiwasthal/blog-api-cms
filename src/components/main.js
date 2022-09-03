@@ -2,6 +2,7 @@ import { AddPost, DeletePost, UpdatePost, DeleteComment } from './buttons';
 import { useState } from 'react';
 import AddPostForm from './addPostForm';
 import DeletePostOverlay from './deletePost';
+import UpdatePostOptions from './updatePostOptions';
 
 let MainPage = () => {
   let [addPost, setAddPost] = useState(false);
@@ -60,7 +61,7 @@ let MainPage = () => {
         ) : deletePost ? (
           <DeletePostOverlay />
         ) : updatePost ? (
-          <h1>Update a Post</h1>
+          <UpdatePostOptions update={setUpdatePost} success={setSuccessMsg} />
         ) : deleteComment ? (
           <h1>Delete a comment</h1>
         ) : null}

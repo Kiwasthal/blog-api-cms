@@ -17,7 +17,7 @@ const DeletePostOverlay = () => {
     <div>
       {posts.length > 0 ? (
         posts.map(post => {
-          return <PostDeleteOption post={post} />;
+          return <PostDeleteOption key={post._id} post={post} />;
         })
       ) : (
         <h1>There are no Posts</h1>

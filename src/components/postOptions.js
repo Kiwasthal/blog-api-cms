@@ -24,7 +24,7 @@ const PostDeleteOption = ({ post }) => {
   }, [post._id]);
   console.log(postComments);
   return (
-    <div key={post._id}>
+    <div>
       <h3>{post.title}</h3>
     </div>
   );
