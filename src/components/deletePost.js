@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import PostDeleteOption from './postOptions';
 
-const DeletePostOverlay = () => {
+const DeletePostOverlay = ({ success, update }) => {
   let [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,14 @@ const DeletePostOverlay = () => {
     <div>
       {posts.length > 0 ? (
         posts.map(post => {
-          return <PostDeleteOption key={post._id} post={post} />;
+          return (
+            <PostDeleteOption
+              key={post._id}
+              post={post}
+              update={update}
+              success={success}
+            />
+          );
         })
       ) : (
         <h1>There are no Posts</h1>

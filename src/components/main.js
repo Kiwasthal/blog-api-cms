@@ -59,7 +59,7 @@ let MainPage = () => {
         {addPost ? (
           <AddPostForm update={setAddPost} success={setSuccessMsg} />
         ) : deletePost ? (
-          <DeletePostOverlay />
+          <DeletePostOverlay update={setDeletePost} success={setSuccessMsg} />
         ) : updatePost ? (
           <UpdatePostOptions update={setUpdatePost} success={setSuccessMsg} />
         ) : deleteComment ? (
