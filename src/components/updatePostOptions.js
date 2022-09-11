@@ -7,7 +7,9 @@ const UpdatePostOptions = ({ update, success }) => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      let request = await fetch('http://localhost:3000/api/posts');
+      let request = await fetch(
+        'https://kiwasthal-blog-server.herokuapp.com/api/posts'
+      );
       let data = await request.json();
       setPosts(data);
     };

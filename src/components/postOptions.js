@@ -8,13 +8,16 @@ const PostDeleteOption = ({ post, update, success }) => {
     console.log(post._id);
     const token = localStorage.getItem('token');
     const bearer = `Bearer ${token}`;
-    let response = await fetch(`http://localhost:3000/api/posts/${post._id}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: bearer,
-      },
-    });
+    let response = await fetch(
+      `https://kiwasthal-blog-server.herokuapp.com/api/posts/${post._id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: bearer,
+        },
+      }
+    );
     const data = await response.json();
 
     if (response.status === 200) {
@@ -28,7 +31,7 @@ const PostDeleteOption = ({ post, update, success }) => {
       const token = localStorage.getItem('token');
       const bearer = `Bearer ${token}`;
       let response = await fetch(
-        `http://localhost:3000/api/posts/${post._id}/comments`,
+        `https://kiwasthal-blog-server.herokuapp.com/api/posts/${post._id}/comments`,
         {
           method: 'GET',
           Authorization: bearer,

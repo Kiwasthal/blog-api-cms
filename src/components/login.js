@@ -18,11 +18,14 @@ let LoginPage = ({ setUserAuth }) => {
     loginData.append('username', username.value);
     loginData.append('password', password.value);
 
-    let response = await fetch('http://localhost:3000/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(Object.fromEntries(loginData)),
-    });
+    let response = await fetch(
+      'https://kiwasthal-blog-server.herokuapp.com/api/login',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(loginData)),
+      }
+    );
 
     let data = await response.json();
 

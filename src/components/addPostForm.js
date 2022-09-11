@@ -15,14 +15,17 @@ const AddPostForm = ({ update, success }) => {
     formData.append('title', title.value);
     formData.append('content', content.value);
 
-    let request = await fetch('http://localhost:3000/api/posts', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: bearer,
-      },
-      body: JSON.stringify(Object.fromEntries(formData)),
-    });
+    let request = await fetch(
+      'https://kiwasthal-blog-server.herokuapp.com/api/posts',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: bearer,
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      }
+    );
     const data = await request.json();
 
     if (request.status === 200) {

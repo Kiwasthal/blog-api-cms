@@ -15,7 +15,7 @@ const PostToUpdate = ({ post, update, success }) => {
     const bearer = `Bearer ${token}`;
 
     let response = await fetch(
-      `http://localhost:3000/api/posts/${post._id}/update`,
+      `https://kiwasthal-blog-server.herokuapp.com/api/posts/${post._id}/update`,
       {
         method: 'PUT',
         headers: {
